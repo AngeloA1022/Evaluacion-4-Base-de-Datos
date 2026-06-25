@@ -29,6 +29,7 @@ def crear_cliente(clientes):
             "ciudad": input("Ciudad: ").strip(),
             "region": input("Región: ").strip()
         }
+
         direcciones.append(direccion)
 
     cliente = {
