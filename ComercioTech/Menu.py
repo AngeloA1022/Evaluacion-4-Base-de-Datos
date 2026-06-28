@@ -4,6 +4,13 @@
 # ============================================================
 
 import sys
+import io
+
+# Forzar encoding UTF-8 para soportar emojis en consola Windows
+if sys.stdout.encoding != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+if sys.stderr.encoding != "utf-8":
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 from Conexion import conectar, cerrar_conexion
 from Clientes import (
     crear_cliente, consultar_cliente,

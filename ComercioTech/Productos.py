@@ -3,6 +3,7 @@
 # ComercioTech — Sistema de Gestión Comercial
 # ============================================================
 
+import re
 from bson import ObjectId
 from pymongo import ASCENDING
 
@@ -86,7 +87,8 @@ def crear_producto(productos) -> None:
         # Precio — número positivo
         while True:
             try:
-                precio = float(input("Precio: ").replace(",", "."))
+                precio_str = input("Precio: ").strip().replace(",", ".")
+                precio = float(precio_str)
                 if precio <= 0:
                     print("❌ El precio debe ser mayor a 0.")
                     continue
@@ -329,7 +331,3 @@ def eliminar_producto(productos, pedidos=None) -> None:
         print("🗑️  Producto eliminado exitosamente.")
     else:
         print("Operación cancelada.")
-
-
-# Import necesario para búsquedas con regex
-import re
