@@ -17,9 +17,10 @@ def menu_clientes():
     while True:
         print("\n--- CLIENTES ---")
         print("1. Crear")
-        print("2. Listar")
+        print("2. Consultar / Listar")
         print("3. Actualizar")
         print("4. Eliminar")
+        print("5. Consultar Pedidos de Cliente")
         print("0. Volver")
 
         op = input("Opción: ")
@@ -27,11 +28,13 @@ def menu_clientes():
         if op == "1":
             crear_cliente(clientes)
         elif op == "2":
-            listar_clientes(clientes)
+            consultar_cliente(clientes)
         elif op == "3":
             actualizar_cliente(clientes)
         elif op == "4":
             eliminar_cliente(clientes)
+        elif op == "5":
+            consultar_pedidos_cliente(clientes, pedidos)
         elif op == "0":
             break
 
@@ -41,9 +44,10 @@ def menu_productos():
     while True:
         print("\n--- PRODUCTOS ---")
         print("1. Crear")
-        print("2. Listar")
+        print("2. Consultar / Listar")
         print("3. Actualizar")
         print("4. Eliminar")
+        print("5. Configurar Índices")
         print("0. Volver")
 
         op = input("Opción: ")
@@ -51,11 +55,13 @@ def menu_productos():
         if op == "1":
             crear_producto(productos)
         elif op == "2":
-            listar_productos(productos)
+            consultar_productos(productos)
         elif op == "3":
             actualizar_producto(productos)
         elif op == "4":
             eliminar_producto(productos)
+        elif op == "5":
+            configurar_indices(productos)
         elif op == "0":
             break
 
