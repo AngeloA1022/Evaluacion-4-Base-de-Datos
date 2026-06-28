@@ -72,7 +72,7 @@ def menu_pedidos():
         op = input("Opción: ")
 
         if op == "1":
-            crear_pedido(pedidos)
+            crear_pedido(pedidos, clientes, productos)
         elif op == "2":
             listar_pedidos(pedidos)
         elif op == "3":
