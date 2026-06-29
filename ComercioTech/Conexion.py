@@ -8,7 +8,7 @@ from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
 # Parámetros de conexión
 MONGO_URI = "mongodb://localhost:27017/"
-DB_NAME   = "Comerciotech"
+DB_NAME   = "ComercioTech"
 TIMEOUT_MS = 3000  # 3 segundos máximo para conectar
 
 

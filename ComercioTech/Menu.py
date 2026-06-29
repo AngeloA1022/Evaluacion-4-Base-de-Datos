@@ -5,12 +5,24 @@
 
 import sys
 import io
+import os
+
+# Asegurar que Python encuentre los módulos del proyecto
+# independientemente del directorio desde donde se ejecute
+_DIR = os.path.dirname(os.path.abspath(__file__))
+if _DIR not in sys.path:
+    sys.path.insert(0, _DIR)
 
 # Forzar encoding UTF-8 para soportar emojis en consola Windows
-if sys.stdout.encoding != "utf-8":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-if sys.stderr.encoding != "utf-8":
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+# IMPORTANTE: esto debe ir ANTES de cualquier import local
+try:
+    if hasattr(sys.stdout, 'buffer') and sys.stdout.encoding.lower() != "utf-8":
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, 'buffer') and sys.stderr.encoding.lower() != "utf-8":
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+except Exception:
+    pass  # En algunos entornos stdout no tiene buffer; se ignora el error
+
 from Conexion import conectar, cerrar_conexion
 from Clientes import (
     crear_cliente, consultar_cliente,

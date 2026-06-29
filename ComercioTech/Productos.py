@@ -16,10 +16,20 @@ def configurar_indices(productos) -> None:
     """
     Crea los índices necesarios para consultas eficientes.
     Se puede llamar de forma segura múltiples veces (idempotente).
+    Si un índice ya existe con las mismas opciones, MongoDB lo ignora.
     """
-    productos.create_index([("sku", ASCENDING)], unique=True, name="idx_sku_unique")
-    productos.create_index([("categoria", ASCENDING)], name="idx_categoria")
-    productos.create_index([("nombre", ASCENDING)], name="idx_nombre")
+    try:
+        productos.create_index([("sku", ASCENDING)], unique=True, name="idx_sku_unique")
+    except Exception:
+        pass  # Índice ya existe
+    try:
+        productos.create_index([("categoria", ASCENDING)], name="idx_categoria")
+    except Exception:
+        pass
+    try:
+        productos.create_index([("nombre", ASCENDING)], name="idx_nombre")
+    except Exception:
+        pass
     print("✅ Índices de productos configurados.")
 
 
