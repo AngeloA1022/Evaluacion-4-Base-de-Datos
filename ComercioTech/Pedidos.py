@@ -2,9 +2,7 @@
 # Pedidos.py — CRUD de Pedidos
 # ComercioTech — Sistema de Gestión Comercial
 # ============================================================
-
 from datetime import datetime
-
 
 # ──────────────────────────────────────────────
 # Helper interno
