@@ -2,10 +2,8 @@
 # Clientes.py — CRUD de Clientes
 # ComercioTech — Sistema de Gestión Comercial
 # ============================================================
-
 import re
 from bson import ObjectId
-
 
 # ──────────────────────────────────────────────
 # Helpers de validación
@@ -16,11 +14,9 @@ def _validar_email(email: str) -> bool:
     patron = r'^[\w\.-]+@[\w\.-]+\.\w{2,}$'
     return bool(re.match(patron, email))
 
-
 def _validar_telefono(telefono: str) -> bool:
     """Valida que el teléfono contenga solo dígitos, espacios, + o guiones."""
     return bool(re.match(r'^[\d\s\+\-]{7,15}$', telefono))
-
 
 def _mostrar_cliente(cliente: dict) -> None:
     """Imprime la información de un cliente de forma formateada."""
@@ -39,7 +35,6 @@ def _mostrar_cliente(cliente: dict) -> None:
     else:
         print("  Direcciones: Sin registrar")
     print("─" * 45)
-
 
 # ──────────────────────────────────────────────
 # CREATE → Registrar cliente(s) en lote
