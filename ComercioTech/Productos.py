@@ -2,11 +2,9 @@
 # Productos.py — CRUD de Productos
 # ComercioTech — Sistema de Gestión Comercial
 # ============================================================
-
 import re
 from bson import ObjectId
 from pymongo import ASCENDING
-
 
 # ──────────────────────────────────────────────
 # ÍNDICES — Configuración automática
