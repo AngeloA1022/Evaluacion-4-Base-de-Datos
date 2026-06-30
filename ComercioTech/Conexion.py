@@ -2,7 +2,6 @@
 # Conexion.py — Módulo de conexión a MongoDB
 # ComercioTech — Sistema de Gestión Comercial
 # ============================================================
-
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
@@ -10,7 +9,6 @@ from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 MONGO_URI = "mongodb://localhost:27017/"
 DB_NAME   = "ComercioTech"
 TIMEOUT_MS = 3000  # 3 segundos máximo para conectar
-
 
 def conectar():
     """
@@ -39,7 +37,6 @@ def conectar():
     except Exception as e:
         print(f"❌ Error inesperado de conexión: {e}")
         return None, None
-
 
 def cerrar_conexion(client):
     """
