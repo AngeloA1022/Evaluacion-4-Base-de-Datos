@@ -94,7 +94,6 @@ def menu_clientes():
 # ──────────────────────────────────────────────
 # Menú — PRODUCTOS
 # ──────────────────────────────────────────────
-
 def menu_productos():
     while True:
         print("\n" + "─" * 35)
@@ -125,11 +124,9 @@ def menu_productos():
         else:
             print("❌ Opción inválida.")
 
-
 # ──────────────────────────────────────────────
 # Menú — PEDIDOS
 # ──────────────────────────────────────────────
-
 def menu_pedidos():
     while True:
         print("\n" + "─" * 35)
